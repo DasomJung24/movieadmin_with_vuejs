@@ -1,4 +1,5 @@
 # megabox_admin_vuejs
+영화 어드민 사이트 미니 프로젝트 
 
 ## Project setup
 ```
