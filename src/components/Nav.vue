@@ -29,9 +29,4 @@ export default {
   color: #fff;
   line-height: 60px;
 }
-/* <el-header
-          background-color="#545c64"
-          text-color="#fff"
-          active-text-color="#ffd04b"
-        > */
 </style>

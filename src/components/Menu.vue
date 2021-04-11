@@ -8,11 +8,12 @@
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b"
+      style="height: 870px;"
     >
       <el-submenu index="1">
         <template v-slot:title>
           <i class="el-icon-location"></i>
-          <span>Navigator One</span>
+          <span>영화 관리</span>
         </template>
         <el-menu-item-group title="Group One">
           <el-menu-item index="1-1">item one</el-menu-item>
