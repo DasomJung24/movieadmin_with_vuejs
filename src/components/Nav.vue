@@ -1,6 +1,9 @@
 <template>
   <el-container>
     <el-header style="text-align: right;">
+      <el-template style="float: left;">
+        <h1>MovieAdmin</h1>
+      </el-template>
       <span>Login</span>
       <span>Register</span>
     </el-header>
