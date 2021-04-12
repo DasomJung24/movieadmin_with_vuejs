@@ -11,3 +11,11 @@ createApp(App)
   .use(store)
   .use(router)
   .mount("#app");
+
+router.beforeEach((to, from, next) => {
+  if (to.name !== "Login") {
+    next({ name: "Login" });
+  } else {
+    next();
+  }
+});
