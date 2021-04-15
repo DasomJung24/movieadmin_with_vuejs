@@ -4,7 +4,7 @@
 }
 .center {
   width: 400px;
-  margin: 20% auto 0;
+  margin: 15% auto 0;
 }
 </style>
 <template>
@@ -16,23 +16,41 @@
       </el-col>
     </el-row>
     <el-row :gutter="20">
-      <el-col :span="12" :offset="6">
+      <el-col :span="10" :offset="7">
         <el-form-item required>
-          <el-input placeholder="EMAIL" v-model="input" clearable> </el-input>
-        </el-form-item>
-      </el-col>
-    </el-row>
-    <el-row :gutter="20">
-      <el-col :span="12" :offset="6">
-        <el-form-item required>
-          <el-input placeholder="PASSWORD" v-model="input" clearable>
+          <el-input placeholder="USER NAME" v-model="inputUserName" clearable>
           </el-input>
         </el-form-item>
       </el-col>
     </el-row>
     <el-row :gutter="20">
-      <el-col :span="12" :offset="6">
-        <el-button type="info" style="width: 100%;">LOGIN</el-button>
+      <el-col :span="10" :offset="7">
+        <el-form-item required>
+          <el-input
+            type="password"
+            placeholder="PASSWORD"
+            v-model="inputPassword"
+            clearable
+          >
+          </el-input>
+        </el-form-item>
+      </el-col>
+    </el-row>
+    <el-row :gutter="20">
+      <el-col :span="10" :offset="7">
+        <el-button type="info" style="width: 100%;" @click.prevent="login"
+          >LOGIN</el-button
+        >
+      </el-col>
+    </el-row>
+    <el-row :gutter="20">
+      <el-col :span="10" :offset="7">
+        <el-button
+          type="primary"
+          style="width: 100%; margin-top: 10px"
+          @click.prevent="register"
+          >REGISTER</el-button
+        >
       </el-col>
     </el-row>
   </el-form>
@@ -41,11 +59,20 @@
 export default {
   data() {
     return {
-      email: "",
-      password: "",
+      inputUserName: "",
+      inputPassword: "",
     };
   },
   components: {},
-  methods: {},
+  methods: {
+    login() {
+      console.log(111);
+    },
+    register() {
+      console.log(222);
+      console.log(this.$router);
+      this.$router.push({ name: "Register" });
+    },
+  },
 };
 </script>
