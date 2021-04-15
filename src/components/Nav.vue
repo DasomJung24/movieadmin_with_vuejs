@@ -4,8 +4,12 @@
       <el-template style="float: left;">
         <h1>MovieAdmin</h1>
       </el-template>
-      <span>Login</span>
-      <span>Register</span>
+      <el-row :gutter="10">
+        <el-col :span="6" :offset="18">
+          <span style="margin-right: 15px;">MyPage</span>
+          <span>LogOut</span>
+        </el-col>
+      </el-row>
     </el-header>
   </el-container>
   <el-container>
