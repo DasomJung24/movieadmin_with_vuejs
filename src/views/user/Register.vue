@@ -8,7 +8,7 @@
     <el-row :gutter="20">
       <el-col :span="10" :offset="7">
         <el-form-item required>
-          <el-input placeholder="USER NAME" v-model="userName" clearable>
+          <el-input placeholder="USER NAME" v-model="user.userName" clearable>
           </el-input>
         </el-form-item>
       </el-col>
@@ -19,7 +19,7 @@
           <el-input
             type="password"
             placeholder="PASSWORD"
-            v-model="password1"
+            v-model="user.password1"
             clearable
           >
           </el-input>
@@ -32,7 +32,7 @@
           <el-input
             type="password"
             placeholder="PASSWORD AGAIN"
-            v-model="password2"
+            v-model="user.password2"
             clearable
           >
           </el-input>
@@ -42,14 +42,7 @@
     <el-row :gutter="20">
       <el-col :span="10" :offset="7">
         <el-form-item required>
-          <el-input placeholder="EMAIL" v-model="email" clearable> </el-input>
-        </el-form-item>
-      </el-col>
-    </el-row>
-    <el-row :gutter="20">
-      <el-col :span="10" :offset="7">
-        <el-form-item required>
-          <el-input placeholder="FIRST NAME" v-model="firstName" clearable>
+          <el-input placeholder="EMAIL" v-model="user.email" clearable>
           </el-input>
         </el-form-item>
       </el-col>
@@ -57,7 +50,7 @@
     <el-row :gutter="20">
       <el-col :span="10" :offset="7">
         <el-form-item required>
-          <el-input placeholder="LAST NAME" v-model="lastName" clearable>
+          <el-input placeholder="FIRST NAME" v-model="user.firstName" clearable>
           </el-input>
         </el-form-item>
       </el-col>
@@ -65,7 +58,15 @@
     <el-row :gutter="20">
       <el-col :span="10" :offset="7">
         <el-form-item required>
-          <el-date-picker v-model="birth" type="date" placeholder="BIRTH">
+          <el-input placeholder="LAST NAME" v-model="user.lastName" clearable>
+          </el-input>
+        </el-form-item>
+      </el-col>
+    </el-row>
+    <el-row :gutter="20">
+      <el-col :span="10" :offset="7">
+        <el-form-item required>
+          <el-date-picker v-model="user.birth" type="date" placeholder="BIRTH">
           </el-date-picker>
         </el-form-item>
       </el-col>
@@ -73,7 +74,11 @@
     <el-row :gutter="20">
       <el-col :span="10" :offset="7">
         <el-form-item required>
-          <el-input placeholder="PHONE NUMBER" v-model="phoneNumber" clearable>
+          <el-input
+            placeholder="PHONE NUMBER"
+            v-model="user.phoneNumber"
+            clearable
+          >
           </el-input>
         </el-form-item>
       </el-col>
@@ -90,20 +95,27 @@
 export default {
   data() {
     return {
-      userName: "",
-      password1: "",
-      password2: "",
-      email: "",
-      firstName: "",
-      lastName: "",
-      phoneNumber: "",
-      birth: "",
+      user: {
+        userName: "",
+        password1: "",
+        password2: "",
+        email: "",
+        firstName: "",
+        lastName: "",
+        phoneNumber: "",
+        birth: "",
+      },
     };
   },
   components: {},
   methods: {
-    register() {
+    async register() {
       console.log(222);
+      const params = { user: this.user };
+      const { status } = await this.axios.post("users/signup", params);
+      if (status === 201) {
+        console.log(3333);
+      }
     },
     cancel() {
       console.log(111);
