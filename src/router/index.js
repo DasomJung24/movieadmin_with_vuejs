@@ -11,6 +11,11 @@ const routes = [
     name: "Register",
     component: () => import("../views/user/Register.vue"),
   },
+  {
+    path: "/",
+    name: "Home",
+    component: () => import("../components/Nav.vue"),
+  },
 ];
 
 const router = createRouter({

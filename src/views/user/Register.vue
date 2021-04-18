@@ -8,7 +8,7 @@
     <el-row :gutter="20">
       <el-col :span="10" :offset="7">
         <el-form-item required>
-          <el-input placeholder="USER NAME" v-model="user.userName" clearable>
+          <el-input placeholder="USER NAME" v-model="user.username" clearable>
           </el-input>
         </el-form-item>
       </el-col>
@@ -19,7 +19,7 @@
           <el-input
             type="password"
             placeholder="PASSWORD"
-            v-model="user.password1"
+            v-model="password1"
             clearable
           >
           </el-input>
@@ -32,7 +32,7 @@
           <el-input
             type="password"
             placeholder="PASSWORD AGAIN"
-            v-model="user.password2"
+            v-model="password2"
             clearable
           >
           </el-input>
@@ -50,7 +50,11 @@
     <el-row :gutter="20">
       <el-col :span="10" :offset="7">
         <el-form-item required>
-          <el-input placeholder="FIRST NAME" v-model="user.firstName" clearable>
+          <el-input
+            placeholder="FIRST NAME"
+            v-model="user.first_name"
+            clearable
+          >
           </el-input>
         </el-form-item>
       </el-col>
@@ -58,7 +62,7 @@
     <el-row :gutter="20">
       <el-col :span="10" :offset="7">
         <el-form-item required>
-          <el-input placeholder="LAST NAME" v-model="user.lastName" clearable>
+          <el-input placeholder="LAST NAME" v-model="user.last_name" clearable>
           </el-input>
         </el-form-item>
       </el-col>
@@ -76,7 +80,7 @@
         <el-form-item required>
           <el-input
             placeholder="PHONE NUMBER"
-            v-model="user.phoneNumber"
+            v-model="user.phone_number"
             clearable
           >
           </el-input>
@@ -96,29 +100,31 @@ export default {
   data() {
     return {
       user: {
-        userName: "",
-        password1: "",
-        password2: "",
+        username: "",
         email: "",
-        firstName: "",
-        lastName: "",
-        phoneNumber: "",
+        first_name: "",
+        last_name: "",
+        phone_number: "",
         birth: "",
       },
+      password1: "",
+      password2: "",
     };
   },
   components: {},
   methods: {
     async register() {
-      console.log(222);
-      const params = { user: this.user };
-      const { status } = await this.axios.post("users/signup", params);
-      if (status === 201) {
-        console.log(3333);
+      if (this.password1 === this.password2) {
+        this.user.password = this.password1;
+        const params = { user: this.user };
+        const { status } = await this.axios.post("users/signup", params);
+        if (status === 201) {
+          this.$router.push({ name: "Login" });
+        }
       }
     },
     cancel() {
-      console.log(111);
+      this.$router.go(-1);
     },
   },
 };
