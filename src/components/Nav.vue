@@ -13,7 +13,7 @@
     </el-header>
   </el-container>
   <el-container>
-    <el-aside width="500px">
+    <el-aside width="500px" style="position: relative;">
       <Menu style="width: 500px"></Menu>
     </el-aside>
   </el-container>

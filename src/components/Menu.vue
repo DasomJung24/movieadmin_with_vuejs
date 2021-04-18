@@ -2,11 +2,10 @@
   <el-col :span="12">
     <el-menu
       default-active="activeMenu"
-      class="el-menu-vertical-demo"
-      background-color="#545c64"
+      class="g-side"
       text-color="#fff"
+      background-color="#545c64"
       active-text-color="#ffd04b"
-      style="height: 870px;"
       router
     >
       <el-submenu index="1">
